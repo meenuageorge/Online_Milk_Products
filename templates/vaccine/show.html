@@ -1,0 +1,42 @@
+
+{% block content %}
+<head>
+    <style>
+            table,th,td{
+        border: solid;
+        background-color:#68A7F8;
+        width: 100%;
+        }
+        th {
+  height: 70px;
+}
+    </style>
+</head>
+<body>
+<table class="table table-striped table-bordered table-sm"  style="background-color:#E6E6FA;" >
+
+    <thead class="thead-dark">
+    <tr>
+        <th>Date of last vaccination</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+{% for i in d %}
+    <tr>
+        <td>{{ i.date_of_vaccination}}</td>
+
+        <td>
+            <a href="/deletevaccine/{{ i.id }}">Delete</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="{% url 'addvaccine'%}" class="btn btn-primary">New Vaccination</a></center>
+</body>
+{% endblock content %}

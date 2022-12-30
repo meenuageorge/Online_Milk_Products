@@ -1,0 +1,44 @@
+
+{% block content %}
+<head>
+    <style>
+        table,th,td{
+        border: solid;
+        background-color:#68A7F8;
+        width: 100%;
+        }
+        th {
+  height: 70px;
+}
+    </style>
+</head>
+<body>
+<table class="table table-striped table-bordered table-sm"  style="background-color:#E6E6FA;" >
+
+    <thead class="thead-dark">
+    <tr>
+        <th>Missing EarTags</th>
+        <th>PreviousEartagId</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+{% for i in d %}
+    <tr>
+        <td>{{ i.type}}</td>
+        <td>{{ i.previoustag}}</td>
+
+        <td>
+            <a href="/deleteeartag/{{ i.id }}">Delete</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="{% url 'addeartag'%}" class="btn btn-primary">Add New Eartag</a></center>
+</body>
+{% endblock content %}

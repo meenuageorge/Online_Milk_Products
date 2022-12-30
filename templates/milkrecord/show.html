@@ -1,0 +1,57 @@
+
+{% block content %}
+<head>
+    <style>
+        table,th,td{
+        border: solid;
+        background-color:#68A7F8;
+        width: 100%;
+        }
+        th {
+  height: 70px;
+}
+    </style>
+</head>
+<body>
+    <div class="col-sm-4">
+    <h3>MILK RECORD</h3>
+    </div>
+<table class="table table-striped table-bordered table-sm"  style="background-color:#E6E6FA;" >
+
+    <thead class="thead-dark">
+    <tr>
+        <th>Name</th>
+        <th>UserId</th>
+        <th>Address</th>
+        <th>Date</th>
+        <th>Morning-milk</th>
+        <th>Evening-milk</th>
+        <th>Payment</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+{% for i in d %}
+    <tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.userid }}</td>
+        <td>{{ i.address }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.morning_milk_record }}</td>
+        <td>{{ i.evening_milk_record }}</td>
+        <td>{{ i.payment }}</td>
+
+        <td>
+            <a href="/delete-milkrecord/{{ i.id }}">Delete</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="{% url 'add-milkrecord'%}" class="btn btn-primary">Add New MilkRecord</a></center>
+</body>
+{% endblock content %}
